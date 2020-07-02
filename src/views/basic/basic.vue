@@ -1,7 +1,12 @@
 <template>
     <div>
-        <h4>基础图形</h4>
-        <div id="rectbox"></div>
+        <el-card class="box-card">
+            <div slot="header" class="clearfix">
+                <span>基础图形</span>
+            </div>
+            <div id="rectbox"></div>
+        </el-card>
+        
     </div>
 </template>
 
