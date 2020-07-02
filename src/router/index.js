@@ -58,10 +58,11 @@ export const constantRoutes = [
   {
     path: '/basic',
     component: Layout,
+    redirect: '/basic/basic',
     meta: { title: '基础图形', icon: 'el-icon-s-help' },
     children: [
       {
-        path: '/basic/index',
+        path: '/basic/basic',
         name: 'Basic',
         component: () => import('@/views/basic/basic'),
         meta: { title: '多边形'}
@@ -126,6 +127,7 @@ export const constantRoutes = [
   {
     path: '/advanced',
     component: Layout,
+    redirect: '/advanced/china',
     meta: { title: '进阶图形', icon: 'form' },
     children: [
       {
@@ -158,7 +160,7 @@ export const constantRoutes = [
   {
     path: '/product',
     component: Layout,
-    // redirect: '/thread',
+    redirect: '/product/thread',
     name: 'Product',
     meta: {
       title: 'Prodyuct',
