@@ -23,7 +23,6 @@ export default {
                 .attr('height', 800)
 
     var container = svg.append('g')
-    
     // 矩形
     this.drawRegularPolygon(container, {
         type: 'rect',
@@ -36,16 +35,16 @@ export default {
         strokeWidth: 2,
         transformRotate: 0
     })
-
-    container.append('text')
-                .text('矩形')
-                .style('font-family', 'simsun')
-                .style('font-size', 12)
-                .style('fill', '#f60')
-                .style('font-weight', 400)
-                .attr('x', 85)
-                .attr('y', 80)
-
+    // 矩形文本
+    this.createrText(container, {
+        x: 85,
+        y: 120,
+        text: '矩形',
+        fontFamily: 'simsun',
+        fontSize: 12,
+        fill: '#f60',
+        fontWeight: 400,
+    })
     // 圆形
     this.drawRegularPolygon(container, {
         type: 'circle',
@@ -56,19 +55,20 @@ export default {
         stroke: '#0f0',
         strokeWidth: 2 
     })
-
-    container.append('text')
-            .text('圆形')
-            .style('font-family', 'simsun')
-            .style('font-size', 12)
-            .style('fill', '#f60')
-            .style('font-weight', 400)
-            .attr('x', 190)
-            .attr('y', 75)
+    // 圆形文本
+    this.createrText(container, {
+        x: 190,
+        y: 120,
+        text: '圆形',
+        fontFamily: 'simsun',
+        fontSize: 12,
+        fill: '#f60',
+        fontWeight: 400,
+    })
     // 正三角形
     this.drawRegularPolygon(container, {
         type: 'trilateral',
-        r: 25,
+        r: 30,
         x: 280,
         y: 80,
         fill: '#fff',
@@ -76,10 +76,20 @@ export default {
         strokeWidth: 2,
         transformRotate: 0
     })
+    // 正三角形文本
+    this.createrText(container, {
+        x: 255,
+        y: 120,
+        text: '正三角形',
+        fontFamily: 'simsun',
+        fontSize: 12,
+        fill: '#f60',
+        fontWeight: 400,
+    })
     // 正五边形
     this.drawRegularPolygon(container, {
         type: 'pentagon',
-        r: 20,
+        r: 26,
         x: 350,
         y: 75,
         fill: '#fff',
@@ -87,10 +97,20 @@ export default {
         strokeWidth: 2,
         transformRotate: 0
     })
+    // 正五边形文本
+    this.createrText(container, {
+        x: 325,
+        y: 120,
+        text: '正五边形',
+        fontFamily: 'simsun',
+        fontSize: 12,
+        fill: '#f60',
+        fontWeight: 400,
+    })
     // 正六边形
     this.drawRegularPolygon(container, {
         type: 'hexagon',
-        r: 20,
+        r: 26,
         x: 420,
         y: 75,
         fill: '#fff',
@@ -98,14 +118,17 @@ export default {
         strokeWidth: 2,
         transformRotate: 0
     })
+    // 正六边形文本
+    this.createrText(container, {
+        x: 396,
+        y: 120,
+        text: '正六边形',
+        fontFamily: 'simsun',
+        fontSize: 12,
+        fill: '#f60',
+        fontWeight: 400,
+    })
     
-      // 五角星
-      // svg.append('polygon')
-      //     .attr('points', "100,100 190,100 115,200 145,50 175,200")
-      //     .attr('stroke', "#0f0")
-      //     .attr('stroke-width', 2)
-      //     .attr('fill', '#f60')
-          // .attr('fill-rule', 'evenodd')
      /**
      * 在图形内部则填充颜色
      * fill-rule: nonzero | evenodd   
@@ -114,6 +137,27 @@ export default {
      * 
      * 这里的左右是根据个人所画图形线段的起始位置来区分的
      */
+    // 五角星
+    this.drawRegularPolygon(container, {
+        type: 'pentagram',
+        r: 30,
+        x: 490,
+        y: 75,
+        fill: '#fff',
+        stroke: '#0f0',
+        strokeWidth: 2,
+        transformRotate: 0
+    })
+    // 五角星文本
+    this.createrText(container, {
+        x: 470,
+        y: 120,
+        text: '五角星',
+        fontFamily: 'simsun',
+        fontSize: 12,
+        fill: '#f60',
+        fontWeight: 400,
+    })
   },
   methods: {
       /**
@@ -134,7 +178,7 @@ export default {
        *  stroke: 边线
        *  strokeWidth: 边线宽度
        */
-    //   画正圆形、三角形、矩形、正五边形、正六边形、image   (角度 --> 弧度    弧度 = 角度 * PI / 180)
+    //   正圆形、三角形、矩形、正五边形、正六边形、image   (角度 --> 弧度    弧度 = 角度 * PI / 180)
     drawRegularPolygon(container, palygonObj) {
         var type = palygonObj.type,
             width = palygonObj.width,
@@ -212,7 +256,55 @@ export default {
                             .attr('fill', fill)
                             .attr('stroke', stroke)
                             .attr('stroke-width', strokeWidth)
+            case 'pentagram':
+                var x1 = x + Math.cos(18 * Math.PI / 180) * r,
+                    x2 = x + Math.sin(36 * Math.PI / 180) * r,
+                    x3 = x - Math.sin(36 * Math.PI / 180) * r,
+                    x4 = x - Math.cos(18 * Math.PI / 180) * r,
+                    y1 = y - Math.sin(18 * Math.PI / 180) * r,
+                    y2 = y + Math.cos(36 * Math.PI / 180) * r,
+                    y3 = y + Math.cos(36 * Math.PI / 180) * r,
+                    y4 = y - Math.sin(18 * Math.PI / 180) * r;
+                return container.append('polygon')
+                            .attr('points', `${x},${y - r} ${x2},${y2} ${x4},${y4} ${x1},${y1} ${x3},${y3}`)
+                            .attr('fill', fill)
+                            .attr('stroke', stroke)
+                            .attr('stroke-width', strokeWidth)
+                            .attr('transform', `rotate(${transformRotate})`)
+            default:
+                break
         }
+    },
+    /**
+       * 
+       * @param {组标签} container 
+       * @param {文本数据} textObj 
+       *  text：文本内容及字体颜色(Array)
+       *  fontFamily：字体
+       *  fontSize：字体大小
+       *  fontWeight：加粗程度
+       *  x：文本位置 x 轴坐标
+       *  y：文本位置 y 轴坐标
+       */
+    // 创建文本
+    createrText(container, textObj) {
+        var text = textObj.text,
+            fontFamily = textObj.fontFamily,
+            fontSize = textObj.fontSize,
+            fontWeight = textObj.fontWeight,
+            x = textObj.x,
+            y = textObj.y,
+            fill = textObj.fill,
+            spanx = textObj.spanx;
+
+         return container.append('text')
+                .text(text)
+                .attr('x', x)
+                .attr('y', y)
+                .style('font-family', fontFamily)
+                .style('font-size', fontSize)
+                .style('font-weight', fontWeight)
+                .attr('fill', fill)
     }
   }
 }
