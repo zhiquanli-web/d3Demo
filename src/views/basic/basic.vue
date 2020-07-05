@@ -5,10 +5,9 @@
                 <span>基础图形</span>
             </div>
             <div>
-                <div id="rectbox"></div>
+                <div id="basicbox"></div>
             </div>
         </el-card>
-        
     </div>
 </template>
 
@@ -17,117 +16,239 @@ import { removeToken } from '../../utils/auth'
 export default {
   mounted() {
     // 添加一个 svg 标签
-    let svg = d3.select("#rectbox")
+    let svg = d3.select("#basicbox")
                 .append('svg')
                 .attr('width', 1000)
-                .attr('height', 800)
+                .attr('height', 600)
 
     var container = svg.append('g')
-    // 矩形
-    this.drawRegularPolygon(container, {
-        type: 'rect',
-        x: 50,
-        y: 50,
-        width: 100,
-        height: 50,
-        fill: '#fff',
-        stroke: '#0f0',
-        strokeWidth: 2,
-        transformRotate: 0
-    })
-    // 矩形文本
-    this.createrText(container, {
-        x: 85,
-        y: 120,
-        text: '矩形',
-        fontFamily: 'simsun',
-        fontSize: 12,
-        fill: '#f60',
-        fontWeight: 400,
-    })
+    
     // 圆形
     this.drawRegularPolygon(container, {
         type: 'circle',
-        r: 25,
-        cx: 200,
+        r: 35,
+        cx: 100,
         cy: 70,
         fill: '#fff',
         stroke: '#0f0',
         strokeWidth: 2 
     })
-    // 圆形文本
     this.createrText(container, {
-        x: 190,
-        y: 120,
-        text: '圆形',
+        x: 92,
+        y: 130,
+        text: '圆',
         fontFamily: 'simsun',
         fontSize: 12,
         fill: '#f60',
-        fontWeight: 400,
+        fontWeight: 500,
     })
+
     // 正三角形
     this.drawRegularPolygon(container, {
         type: 'trilateral',
-        r: 30,
-        x: 280,
+        r: 35,
+        x: 200,
         y: 80,
         fill: '#fff',
         stroke: '#0f0',
         strokeWidth: 2,
         transformRotate: 0
     })
-    // 正三角形文本
     this.createrText(container, {
-        x: 255,
-        y: 120,
+        x: 175,
+        y: 130,
         text: '正三角形',
         fontFamily: 'simsun',
         fontSize: 12,
         fill: '#f60',
-        fontWeight: 400,
+        fontWeight: 500,
     })
+
+    // 矩形
+    this.drawRegularPolygon(container, {
+        type: 'rect',
+        x: 270,
+        y: 50,
+        width: 80,
+        height: 40,
+        fill: '#fff',
+        stroke: '#0f0',
+        strokeWidth: 2,
+        transformRotate: 0
+    })
+    // rectDom.transition()
+    //         .attr('width', 30)
+    //         .delay(2000)
+    //         .duration(3000)
+    //         .ease('blunce') // 过度样式  弹跳
+    // 动画
+    // rectDom.on('click', function() {
+    //     rectDom.transition()
+    //         .attr('width', 30)
+    //         .delay(2000)
+    //         .duration(3000)
+    //         .ease('blunce') // 过度样式  弹跳
+    // })
+    this.createrText(container, {
+        x: 300,
+        y: 130,
+        text: '矩形',
+        fontFamily: 'simsun',
+        fontSize: 12,
+        fill: '#f60',
+        fontWeight: 500,
+    })
+    
     // 正五边形
     this.drawRegularPolygon(container, {
         type: 'pentagon',
-        r: 26,
-        x: 350,
+        r: 35,
+        x: 430,
         y: 75,
         fill: '#fff',
         stroke: '#0f0',
         strokeWidth: 2,
         transformRotate: 0
     })
-    // 正五边形文本
     this.createrText(container, {
-        x: 325,
-        y: 120,
+        x: 404,
+        y: 130,
         text: '正五边形',
         fontFamily: 'simsun',
         fontSize: 12,
         fill: '#f60',
         fontWeight: 400,
     })
+    
     // 正六边形
     this.drawRegularPolygon(container, {
         type: 'hexagon',
-        r: 26,
-        x: 420,
+        r: 35,
+        x: 530,
         y: 75,
         fill: '#fff',
         stroke: '#0f0',
         strokeWidth: 2,
         transformRotate: 0
     })
-    // 正六边形文本
     this.createrText(container, {
-        x: 396,
-        y: 120,
+        x: 506,
+        y: 130,
         text: '正六边形',
         fontFamily: 'simsun',
         fontSize: 12,
         fill: '#f60',
-        fontWeight: 400,
+        fontWeight: 400
     })
+
+    // 四边相等的菱形
+    this.drawRegularPolygon(container, {
+        type: 'lozenge',
+        r: 20,
+        x: 100,
+        y: 200,
+        fill: '#fff',
+        stroke: '#0f0',
+        strokeWidth: 2,
+        transformRotate: 0
+    })
+    this.createrText(container, {
+        x: 90,
+        y: 260,
+        text: '菱形',
+        fontFamily: 'simsun',
+        fontSize: 12,
+        fill: '#f60',
+        fontWeight: 500,
+    })
+
+    // 四角星
+    this.drawRegularPolygon(container, {
+        type: 'shuriken',
+        r: 30,
+        x: 190,
+        y: 200,
+        fill: '#fff',
+        stroke: '#0f0',
+        strokeWidth: 2,
+        transformRotate: 0
+    })
+    this.createrText(container, {
+        x: 175,
+        y: 260,
+        text: '四角星',
+        fontFamily: 'simsun',
+        fontSize: 12,
+        fill: '#f60',
+        fontWeight: 500,
+    })
+
+    // 五角星
+    this.drawRegularPolygon(container, {
+        type: 'pentagram',
+        r: 30,
+        x: 300,
+        y: 200,
+        fill: '#fff',
+        stroke: '#0f0',
+        strokeWidth: 2,
+        transformRotate: 0
+    })
+    this.createrText(container, {
+        x: 280,
+        y: 260,
+        text: '五角星',
+        fontFamily: 'simsun',
+        fontSize: 12,
+        fill: '#f60',
+        fontWeight: 500,
+    })
+
+    // 六角星
+    this.drawRegularPolygon(container, {
+        type: 'hexagram',
+        r: 30,
+        x: 400,
+        y: 200,
+        fill: '#fff',
+        stroke: '#0f0',
+        strokeWidth: 2,
+        transformRotate: 30
+    })
+    this.createrText(container, {
+        x: 380,
+        y: 260,
+        text: '六角星',
+        fontFamily: 'simsun',
+        fontSize: 12,
+        fill: '#f60',
+        fontWeight: 500,
+    })
+
+    // 箭头
+    this.drawRegularPolygon(container, {
+        type: 'arrow',
+        r: 30,
+        x: 500,
+        y: 200,
+        fill: '#fff',
+        stroke: '#0f0',
+        strokeWidth: 2,
+        transformRotate: 0,
+        arrowWidth: 10,
+        arrowHeight: 20
+    })
+    this.createrText(container, {
+        x: 490,
+        y: 260,
+        text: '箭头',
+        fontFamily: 'simsun',
+        fontSize: 12,
+        fill: '#f60',
+        fontWeight: 500,
+    })
+    
+    
     
      /**
      * 在图形内部则填充颜色
@@ -137,27 +258,10 @@ export default {
      * 
      * 这里的左右是根据个人所画图形线段的起始位置来区分的
      */
-    // 五角星
-    this.drawRegularPolygon(container, {
-        type: 'pentagram',
-        r: 30,
-        x: 490,
-        y: 75,
-        fill: '#fff',
-        stroke: '#0f0',
-        strokeWidth: 2,
-        transformRotate: 0
-    })
-    // 五角星文本
-    this.createrText(container, {
-        x: 470,
-        y: 120,
-        text: '五角星',
-        fontFamily: 'simsun',
-        fontSize: 12,
-        fill: '#f60',
-        fontWeight: 400,
-    })
+    
+    
+
+    
   },
   methods: {
       /**
@@ -174,9 +278,11 @@ export default {
        *  r：圆形节点半径 (正多边形内接圆半径)
        *  cx：圆形节点圆心 x 轴坐标
        *  cy：圆形节点圆心 y 轴坐标
-       *  transformRotate: 旋转角度
+       *  transformRotate: 旋转角度(节点中心旋转)
        *  stroke: 边线
        *  strokeWidth: 边线宽度
+       *  arrowWidth：三角形与矩形交点的x轴距离
+       *  arrowHeight：矩形顶点到三角形的y轴距离
        */
     //   正圆形、三角形、矩形、正五边形、正六边形、image   (角度 --> 弧度    弧度 = 角度 * PI / 180)
     drawRegularPolygon(container, palygonObj) {
@@ -192,6 +298,8 @@ export default {
             r = palygonObj.r,
             cx = palygonObj.cx,
             cy = palygonObj.cy,
+            arrowWidth = palygonObj.arrowWidth,
+            arrowHeight = palygonObj.arrowHeight,
             transformRotate = palygonObj.transformRotate;
         switch (type) {
             case 'circle':
@@ -203,16 +311,18 @@ export default {
                     .attr('stroke', stroke)
                     .attr('stroke-width', strokeWidth)
             case 'trilateral': 
-                var x1 = x + Math.sin(60 * Math.PI / 180) * r,
-                    x2 = x - Math.sin(60 * Math.PI / 180) * r,
-                    y1 = y + Math.cos(60 * Math.PI / 180) * r,
-                    y2 = y + Math.cos(60 * Math.PI / 180) * r;
+                var x1 = x,
+                    x2 = x + Math.sin(60 * Math.PI / 180) * r,
+                    x3 = x - Math.sin(60 * Math.PI / 180) * r,
+                    y1 = y - r,
+                    y2 = y + Math.cos(60 * Math.PI / 180) * r,
+                    y3 = y + Math.cos(60 * Math.PI / 180) * r;
                 return container.append('polygon')
-                            .attr('points', `${x},${y - r} ${x1},${y1} ${x2},${y2}`)
+                            .attr('points', `${x1},${y1} ${x2},${y2} ${x3},${y3}`)
                             .attr('fill', fill)
                             .attr('stroke', stroke)
                             .attr('stroke-width', strokeWidth)
-                            .attr('transform', `rotate(${transformRotate})`)
+                            .attr('transform', `rotate(${transformRotate}, ${x}, ${y})`)
             case 'rect':
                 return container.append(type)
                     .attr('x', x) 
@@ -222,40 +332,58 @@ export default {
                     .attr('fill', fill) 
                     .attr('stroke', stroke) 
                     .attr('stroke-width', strokeWidth) 
-                    .attr('transform', `rotate(${transformRotate})`)
+                    .attr('transform', `rotate(${transformRotate}, ${x + x / 2}, ${y + y / 2})`)
+            case 'lozenge': 
+                var x1 = x,
+                    x2 = x + Math.sin(60 * Math.PI / 180) * r,
+                    x3 = x,
+                    x4 = x - Math.sin(60 * Math.PI / 180) * r,
+                    y1 = y - r,
+                    y2 = y + Math.cos(60 * Math.PI / 180) * r,
+                    y3 = y + Math.cos(60 * Math.PI / 180) * r + Math.tan(60 * Math.PI / 180) * Math.sin(60 * Math.PI / 180) * r,
+                    y4 = y + Math.cos(60 * Math.PI / 180) * r;
+                return container.append('polygon')
+                            .attr('points', `${x1},${y1} ${x2},${y2} ${x3},${y3} ${x4},${y4}`)
+                            .attr('fill', fill)
+                            .attr('stroke', stroke)
+                            .attr('stroke-width', strokeWidth)
+                            .attr('transform', `rotate(${transformRotate}, ${x}, ${y})`)
             case 'pentagon':
-                var x1 = x + Math.cos(18 * Math.PI / 180) * r,
-                    x2 = x + Math.sin(36 * Math.PI / 180) * r,
-                    x3 = x - Math.sin(36 * Math.PI / 180) * r,
-                    x4 = x - Math.cos(18 * Math.PI / 180) * r,
-                    y1 = y - Math.sin(18 * Math.PI / 180) * r,
-                    y2 = y + Math.cos(36 * Math.PI / 180) * r,
+                var x1 = x,
+                    x2 = x + Math.cos(18 * Math.PI / 180) * r,
+                    x3 = x + Math.sin(36 * Math.PI / 180) * r,
+                    x4 = x - Math.sin(36 * Math.PI / 180) * r,
+                    x5 = x - Math.cos(18 * Math.PI / 180) * r,
+                    y1 = y - r,
+                    y2 = y - Math.sin(18 * Math.PI / 180) * r,
                     y3 = y + Math.cos(36 * Math.PI / 180) * r,
-                    y4 = y - Math.sin(18 * Math.PI / 180) * r;
+                    y4 = y + Math.cos(36 * Math.PI / 180) * r,
+                    y5 = y - Math.sin(18 * Math.PI / 180) * r;
                 return container.append('polygon')
-                            .attr('points', `${x},${y - r} ${x1},${y1} ${x2},${y2} ${x3},${y3} ${x4},${y4}`)
+                            .attr('points', `${x1},${y1} ${x2},${y2} ${x3},${y3} ${x4},${y4} ${x5},${y5} `)
                             .attr('fill', fill)
                             .attr('stroke', stroke)
                             .attr('stroke-width', strokeWidth)
-                            .attr('transform', `rotate(${transformRotate})`)
+                            .attr('transform', `rotate(${transformRotate}, ${x}, ${y})`)
             case 'hexagon':
-                var x0 = x - Math.cos(60 * Math.PI / 180) * r,
-                    x1 = x + Math.cos(60 * Math.PI / 180) * r,
-                    x2 = x + Math.sin(90 * Math.PI / 180) * r,
-                    x3 = x + Math.cos(60 * Math.PI / 180) * r,
-                    x4 = x - Math.cos(60 * Math.PI / 180) * r,
-                    x5 = x - Math.sin(90 * Math.PI / 180) * r,
-                    y0 = y - Math.sin(60 * Math.PI / 180) * r,
+                var x1 = x - Math.cos(60 * Math.PI / 180) * r,
+                    x2 = x + Math.cos(60 * Math.PI / 180) * r,
+                    x3 = x + Math.sin(90 * Math.PI / 180) * r,
+                    x4 = x + Math.cos(60 * Math.PI / 180) * r,
+                    x5 = x - Math.cos(60 * Math.PI / 180) * r,
+                    x6 = x - Math.sin(90 * Math.PI / 180) * r,
                     y1 = y - Math.sin(60 * Math.PI / 180) * r,
-                    y2 = y - Math.cos(90 * Math.PI / 180) * r,
-                    y3 = y + Math.sin(60 * Math.PI / 180) * r,
+                    y2 = y - Math.sin(60 * Math.PI / 180) * r,
+                    y3 = y - Math.cos(90 * Math.PI / 180) * r,
                     y4 = y + Math.sin(60 * Math.PI / 180) * r,
-                    y5 = y - Math.cos(90 * Math.PI / 180) * r;
+                    y5 = y + Math.sin(60 * Math.PI / 180) * r,
+                    y6 = y - Math.cos(90 * Math.PI / 180) * r;
                 return container.append('polygon')
-                            .attr('points', `${x0},${y0} ${x1},${y1} ${x2},${y2} ${x3},${y3} ${x4},${y4} ${x5},${y5}`)
+                            .attr('points', `${x1},${y1} ${x2},${y2} ${x3},${y3} ${x4},${y4} ${x5},${y5} ${x6},${y6}`)
                             .attr('fill', fill)
                             .attr('stroke', stroke)
                             .attr('stroke-width', strokeWidth)
+                            .attr('transform', `rotate(${transformRotate}, ${x}, ${y})`)
             case 'pentagram':
                 var x1 = x + Math.cos(18 * Math.PI / 180) * r,
                     x2 = x + Math.sin(36 * Math.PI / 180) * r,
@@ -270,7 +398,66 @@ export default {
                             .attr('fill', fill)
                             .attr('stroke', stroke)
                             .attr('stroke-width', strokeWidth)
-                            .attr('transform', `rotate(${transformRotate})`)
+                            .attr('transform', `rotate(${transformRotate}, ${x}, ${y})`)
+            case 'arrow':
+                var x1 = x,
+                    x2 = x + Math.sin(60 * Math.PI / 180) * r,
+                    x3 = x + arrowWidth,
+                    x4 = x + arrowWidth,
+                    x5 = x - arrowWidth,
+                    x6 = x - arrowWidth,
+                    x7 = x - Math.sin(60 * Math.PI / 180) * r,
+                    y1 = y - r,
+                    y2 = y + Math.cos(60 * Math.PI / 180) * r,
+                    y3 = y2,
+                    y4 = y2 + arrowHeight,
+                    y5 = y2 + arrowHeight,
+                    y6 = y2,
+                    y7 = y2;
+                return container.append('polygon')
+                            .attr('points', `${x1},${y1} ${x2},${y2} ${x3},${y3} ${x4},${y4} ${x5},${y5} ${x6},${y6} ${x7},${y7}`)
+                            .attr('fill', fill)
+                            .attr('stroke', stroke)
+                            .attr('stroke-width', strokeWidth)
+                            .attr('transform', `rotate(${transformRotate}, ${x}, ${y})`)
+            case 'shuriken':
+                return container.append('polygon')
+                            .attr('points', `${x},${y - r} ${x + r / 4},${y - r / 4} ${x + r},${y} ${x + r / 4},${y + r / 4} ${x},${y + r} ${x - r / 4},${y + r / 4} ${x - r},${y} ${x - r / 4},${y - r / 4}`)
+                            .attr('fill', fill)
+                            .attr('stroke', stroke)
+                            .attr('stroke-width', strokeWidth)
+                            .attr('transform', `rotate(${transformRotate}, ${x}, ${y})`)
+            case 'hexagram':
+                var x1 = x - Math.cos(60 * Math.PI / 180) * r,
+                    x2 = x,
+                    x3 = x + Math.cos(60 * Math.PI / 180) * r,
+                    x4 = x + Math.cos(30 * Math.PI / 180) * r / 2,
+                    x5 = x + Math.sin(90 * Math.PI / 180) * r,
+                    x6 = x4,
+                    x7 = x + Math.cos(60 * Math.PI / 180) * r,
+                    x8 = x,
+                    x9 = x - Math.cos(60 * Math.PI / 180) * r,
+                    x10 = x - Math.cos(30 * Math.PI / 180) * r / 2,
+                    x11 = x - Math.sin(90 * Math.PI / 180) * r,
+                    x12 = x10,
+                    y1 = y - Math.sin(60 * Math.PI / 180) * r,
+                    y2 = y - r / 2 ,
+                    y3 = y - Math.sin(60 * Math.PI / 180) * r,
+                    y4 = y - Math.sin(30 * Math.PI / 180) * r / 2,
+                    y5 = y - Math.cos(90 * Math.PI / 180) * r,
+                    y6 = y + Math.sin(30 * Math.PI / 180) * r / 2,
+                    y7 = y + Math.sin(60 * Math.PI / 180) * r,
+                    y8 = y + r / 2,
+                    y9 = y + Math.sin(60 * Math.PI / 180) * r,
+                    y10 = y6,
+                    y11 = y - Math.cos(90 * Math.PI / 180) * r,
+                    y12 = y4;
+                return container.append('polygon')
+                            .attr('points', `${x1},${y1} ${x2},${y2} ${x3},${y3} ${x4},${y4} ${x5},${y5} ${x6},${y6} ${x7},${y7} ${x8},${y8} ${x9},${y9} ${x10},${y10} ${x11},${y11} ${x12},${y12}`)
+                            .attr('fill', fill)
+                            .attr('stroke', stroke)
+                            .attr('stroke-width', strokeWidth)
+                            .attr('transform', `rotate(${transformRotate}, ${x}, ${y})`)
             default:
                 break
         }

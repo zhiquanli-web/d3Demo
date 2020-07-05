@@ -65,7 +65,13 @@ export const constantRoutes = [
         path: '/basic/basic',
         name: 'Basic',
         component: () => import('@/views/basic/basic'),
-        meta: { title: '多边形'}
+        meta: { title: '基础图形'}
+      },
+      {
+        path: '/basic/animate',
+        name: 'Basicanimate',
+        component: () => import('@/views/basic/animate'),
+        meta: { title: '基础动画'}
       },
       {
         path: '/basic/histogram',
