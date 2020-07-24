@@ -65,68 +65,68 @@ export const constantRoutes = [
         path: '/basic/basic',
         name: 'Basic',
         component: () => import('@/views/basic/basic'),
-        meta: { title: '基础图形'}
+        meta: { title: '基础图形' }
       },
       {
         path: '/basic/animate',
         name: 'Basicanimate',
         component: () => import('@/views/basic/animate'),
-        meta: { title: '基础动画'}
+        meta: { title: '基础动画' }
       },
       {
         path: '/basic/histogram',
         name: 'Histogram',
         component: () => import('@/views/basic/histogram'),
-        meta: {title: '直方图'}
+        meta: { title: '直方图' }
       },
       {
         path: '/basic/line',
         name: 'Line',
         component: () => import('@/views/basic/line'),
-        meta: {title: '折线图'}
+        meta: { title: '折线图' }
       },
       {
         path: '/basic/dendrogram',
         name: 'Dendrogram',
         component: () => import('@/views/basic/dendrogram'),
-        meta: {title: '饼图'}
+        meta: { title: '饼图' }
       },
       {
         path: '/basic/area',
         name: 'Area',
         component: () => import('@/views/basic/area'),
-        meta: {title: '面积图'}
+        meta: { title: '面积图' }
       },
       {
         path: '/basic/scatterdiagram',
         name: 'Scatterdiagram',
         component: () => import('@/views/basic/scatterdiagram'),
-        meta: {title: '散点图'}
+        meta: { title: '散点图' }
       },
       {
         path: '/basic/force',
         name: 'Forece',
         component: () => import('@/views/basic/force'),
-        meta: {title: '力导图'}
+        meta: { title: '力导图' }
       },
       {
         path: '/basic/tags',
         name: 'Tags',
         component: () => import('@/views/basic/tags'),
-        meta: {title: '标签云图'}
+        meta: { title: '标签云图' }
       },
       {
         path: '/basic/three',
         name: 'Three',
         component: () => import('@/views/basic/three'),
-        meta: {title: '树状图'}
+        meta: { title: '树状图' }
       },
       {
         path: '/basic/figure',
         name: 'Figure',
         component: () => import('@/views/basic/figure'),
-        meta: {title: '树状图'}
-      },
+        meta: { title: '树状图' }
+      }
     ]
   },
   // advanced
@@ -140,25 +140,25 @@ export const constantRoutes = [
         path: '/advanced/china',
         name: 'China',
         component: () => import('@/views/advanced/china'),
-        meta: {title: '简单中国地图'}
+        meta: { title: '简单中国地图' }
       },
       {
         path: '/advanced/combinedbar',
         name: 'Combinedbar',
         component: () => import('@/views/advanced/combinedbar'),
-        meta: {title: '组合柱状图'}
+        meta: { title: '组合柱状图' }
       },
       {
         path: '/advanced/stackhistogram',
         name: 'Stackhistogram',
         component: () => import('@/views/advanced/stackhistogram'),
-        meta: {title: '堆栈柱状图'}
+        meta: { title: '堆栈柱状图' }
       },
       {
         path: '/advanced/radialstackbar',
         name: 'Radialstackbar',
         component: () => import('@/views/advanced/radialstackbar'),
-        meta: {title: '径向堆栈柱状图'}
+        meta: { title: '径向堆栈柱状图' }
       }
     ]
   },
